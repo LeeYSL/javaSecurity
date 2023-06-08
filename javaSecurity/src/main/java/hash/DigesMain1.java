@@ -13,7 +13,7 @@ public class DigesMain1 {
 		//자바에서 처리 가능한 해쉬 알고리즘 목록
 		Set<String> algorithms = Security.getAlgorithms("MessageDigest");
 		System.out.println(algorithms);
-		String[] algo = {"MD5","SHA-1","SHA-256","SHA-512"};
+		String[] algo = {"MD5","SHA-1","SHA-256","SHA-512"}; // SHA-512 요즘 많이 쓴다.
 		System.out.println("해쉬값을 구할 문자열을 입력하세요");
 		Scanner scan = new Scanner(System.in);
 		String str = scan.nextLine();
