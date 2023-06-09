@@ -13,7 +13,7 @@ public class CipherMain2 {
 		String result = null;
 		while(true){
 			//1.기밀문서 : 공개키로 암호화 개인키로 복호화
-			//2.본인작성 표시 : 개인키로 암호화 공개키로 복호화
+			//2.본인작성 표시 : 개인키로 암호화 공개키로 복호화(부인방지)
 			System.out.println("문서의 종류 선택(1.기밀문서,2.본인작성표시,9.종료)");
 			int menu1 = scan.nextInt();
 			if(menu1 == 9) break;
@@ -22,8 +22,9 @@ public class CipherMain2 {
 			str1 =(menu1==1)?"기밀문서":"본인작성표시";
 			str2 =(menu2==1)?"암호":"복호";
 			System.out.println(str1+"" + str2 + "를 위한 내용을 입력하세요");
-			org = scan.next();
-			result = (menu1==1)?CipherRSA.encrypt(org,menu1):CipherRSA.decrypt(org,menu1);
+			org = scan.next(); //암호화나 복호화에 필요한 데이터 입력
+			result = (menu2==1)?CipherRSA.encrypt(org,menu1): //암호화
+				              CipherRSA.decrypt(org,menu1);  //복호화
 			System.out.println("===" +str2+ "===");
 			System.out.println(result);
 			                        
